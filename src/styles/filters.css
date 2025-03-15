@@ -1,0 +1,54 @@
+@import url('../styles/fonts.css');
+
+.filter-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: inherit;
+    padding: 6px 15px;
+    border-right: 1px solid #ccc;
+}
+
+.filter-item:last-child {
+    border-right: none;
+}
+
+.custom-input {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    font-size: 16px;
+}
+
+.custom-input input {
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.custom-select {
+    width: 100%;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    font-size: 16px;
+}
+
+.custom-select .ant-select-selector,
+.custom-input:focus {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.salary-slider {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.salary-slider span {
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 5px;
+}

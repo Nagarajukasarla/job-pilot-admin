@@ -1,0 +1,21 @@
+.home-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-wrapper {
+    width: 100vw;
+    background: #ffffff;
+}
+
+.filters {
+    font-family: 'Satoshi', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 100px;
+    border-radius: 10px;
+    margin-top: 35px;
+}

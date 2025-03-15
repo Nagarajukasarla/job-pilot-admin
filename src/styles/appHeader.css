@@ -1,0 +1,30 @@
+.custom-menu.ant-menu {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.custom-menu.ant-menu .ant-menu-item {
+    font-family: 'Satoshi', sans-serif !important;
+    font-weight: 600;
+}
+
+.custom-menu.ant-menu .ant-menu-item .ant-typography {
+    font-size: 16px;
+}
+
+.custom-menu.ant-menu .ant-menu-item::after {
+    border-bottom: none !important;
+}
+
+.custom-menu.ant-menu .ant-menu-item-selected::after {
+    border-bottom: 2px solid #6a0dad !important;
+}
+
+.custom-menu.ant-menu .ant-menu-item-selected .ant-typography {
+    color: #6a0dad !important;
+}
+
+.custom-menu.ant-menu .ant-menu-item:hover .ant-typography {
+    color: #6a0dad !important;
+    transition: color 0.3s ease;
+}

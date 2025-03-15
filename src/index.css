@@ -1,0 +1,30 @@
+@import './styles/fonts.css';
+
+:root {
+    font-family: 'Satoshi', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Satoshi', sans-serif;
+}
+
+body {
+    margin: 0;
+    min-width: 1000px;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-family: 'Satoshi', sans-serif;
+}
+
+.ant-typography {
+    font-family: 'Satoshi', sans-serif !important;
+    font-weight: inherit;
+}
