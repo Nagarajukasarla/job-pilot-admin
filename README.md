@@ -1,54 +1,57 @@
-# React + TypeScript + Vite
+# JobPilot Admin Dashboard 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![JobPilot Logo](src/assets/Screenshot.png)
 
-Currently, two official plugins are available:
+A sleek, modern job posting platform built with React, TypeScript, and Supabase. Streamline your recruitment process with our intuitive admin dashboard.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 [Live Demo](https://rococo-tartufo-745e98.netlify.app)
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Single Page Application**: Lightning-fast performance with no page reloads
+- **Job Post Management**: Create and manage job listings effortlessly
+- **Advanced Filtering**: Filter jobs by:
+  - Location
+  - Job Type
+  - Salary Range
+  - Search Keywords
+- **Real-time Updates**: Instant database synchronization with Supabase
+- **Responsive Design**: Seamless experience across all devices
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🛠️ Tech Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Frontend**: React 18 with TypeScript
+- **Styling**: Ant Design + Custom CSS
+- **Build Tool**: Vite
+- **Backend**: Supabase
+- **Deployment**: Netlify
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🌟 Key Features in Detail
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### Job Post Creation
+- Title and company information
+- Salary range specification
+- Job type selection
+- Detailed description support
+- Location settings
+
+### Advanced Filtering System
+- Real-time search functionality
+- Location-based filtering
+- Salary range slider
+- Job type categorization
+
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [Supabase](https://supabase.io/) for the backend infrastructure
+- [Ant Design](https://ant.design/) for the UI components
+- [Vite](https://vitejs.dev/) for the blazing fast build tool
+
+---
+
+Made with ❤️ by Nagaraju Kasarla
