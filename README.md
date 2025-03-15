@@ -4,7 +4,7 @@
 
 A sleek, modern job posting platform built with React, TypeScript, and Supabase. Streamline your recruitment process with our intuitive admin dashboard.
 
-## 🌟 [Live Demo](https://rococo-tartufo-745e98.netlify.app)
+## 🔗 [Live Demo](https://rococo-tartufo-745e98.netlify.app)
 
 ## ✨ Features
 
