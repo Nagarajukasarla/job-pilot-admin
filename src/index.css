@@ -28,3 +28,8 @@ h1, h2, h3, h4, h5, h6, p {
     font-family: 'Satoshi', sans-serif !important;
     font-weight: inherit;
 }
+
+
+.ant-slider-handle:hover {
+    background-color: #6a0dad !important;
+}

@@ -1,4 +1,4 @@
-import { indianCities, jobTypes } from '@/constants'
+import { locations, jobTypes } from '@/constants'
 import { getDraft, saveDraft } from '@/utils/localStorage'
 import {
     ArrowDownOutlined,
@@ -160,7 +160,7 @@ const JobApplicationForm: React.FC<JobApplicationProps> = ({
                             >
                                 <Select
                                     placeholder="Choose Preferred Location"
-                                    options={indianCities.map((city) => {
+                                    options={locations.map((city) => {
                                         return {
                                             label: city,
                                             value: city,

@@ -1,5 +1,6 @@
 import React from 'react'
-import { Slider } from 'antd'
+import { ConfigProvider, Slider } from 'antd'
+import { Color } from 'antd/es/color-picker'
 
 interface Props {
     min: number
@@ -36,21 +37,44 @@ const SalarySlider: React.FC<Props> = ({ min, max, value, onChange }) => {
                     {formatSalary(value[0])} - {formatSalary(value[1])}
                 </span>
             </div>
-            <Slider
-                range
-                value={value}
-                onChange={(values) => onChange(values as [number, number])}
-                min={min}
-                max={max}
-                style={{
-                    width: 320,
-                }}
-                tooltip={{
-                    formatter(value) {
-                        return formatSalary(value || 0)
+            <ConfigProvider
+                theme={{
+                    components: {
+                        Slider: {
+                            handleColor: 'black',
+                            handleActiveColor: 'black',
+                            handleActiveOutlineColor: 'black',
+                            handleSizeHover: 8,
+                            trackHoverBg: 'black',
+                        },
                     },
                 }}
-            />
+            >
+                <Slider
+                    range
+                    value={value}
+                    onChange={(values) => onChange(values as [number, number])}
+                    min={min}
+                    max={max}
+                    style={{
+                        width: 320,
+                        color: 'black',
+                    }}
+                    tooltip={{
+                        formatter(value) {
+                            return formatSalary(value || 0)
+                        },
+                    }}
+                    styles={{
+                        track: {
+                            backgroundColor: 'black',
+                        },
+                        rail: {
+                            backgroundColor: '#E0E0E0',
+                        },
+                    }}
+                />
+            </ConfigProvider>
         </div>
     )
 }

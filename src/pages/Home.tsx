@@ -12,7 +12,7 @@ import { Empty, Layout, message, Spin, Button } from 'antd'
 import { Content, Header } from 'antd/es/layout/layout'
 import React, { useEffect, useMemo, useState } from 'react'
 import './Home.css'
-import { indianCities, jobTypes } from '@/constants'
+import { locations, jobTypes } from '@/constants'
 
 const Home: React.FC = () => {
     const [searchValue, setSearchValue] = useState('')
@@ -59,8 +59,12 @@ const Home: React.FC = () => {
             const matchesSearch = job.title
                 .toLowerCase()
                 .includes(searchValue.toLowerCase())
-            const matchesLocation = !location || job.location === location
-            const matchesJobType = !jobType || job.jobType === jobType
+            const matchesLocation =
+                !location ||
+                job.location.toLowerCase().includes(location.toLowerCase())
+            const matchesJobType =
+                !jobType ||
+                job.jobType.toLowerCase().includes(jobType.toLowerCase())
             const matchesSalary =
                 job.salaryFrom <= salaryRange[1] &&
                 job.salaryTo >= salaryRange[0]
@@ -108,7 +112,7 @@ const Home: React.FC = () => {
                     <SearchBar value={searchValue} onChange={setSearchValue} />
                     <LocationDropdown
                         value={location}
-                        options={indianCities}
+                        options={locations}
                         onChange={setLocation}
                     />
                     <JobTypeDropdown
