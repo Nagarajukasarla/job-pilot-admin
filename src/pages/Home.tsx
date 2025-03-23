@@ -2,24 +2,24 @@ import JobApplicationForm from '@/components/JobApplication'
 import JobCard from '@/components/JobCard'
 import JobTypeDropdown from '@/components/JobTypeDropdown'
 import LocationDropdown from '@/components/LocationDropdown'
-import SearchBar from '@/components/SearchBar'
 import SalarySlider from '@/components/SalarySlider'
+import SearchBar from '@/components/SearchBar'
+import { jobTypes, locations } from '@/constants'
 import AppHeader from '@/layout/AppHeader'
 import { createJob, fetchAllJobApplications } from '@/services/api'
 import '@/styles/filters.css'
 import { JobApplication } from '@/types'
-import { Empty, Layout, message, Spin, Button } from 'antd'
+import { Button, Empty, Layout, message, Spin } from 'antd'
 import { Content, Header } from 'antd/es/layout/layout'
 import React, { useEffect, useMemo, useState } from 'react'
-import './Home.css'
-import { locations, jobTypes } from '@/constants'
+import '@/styles/home.css'
 
 const Home: React.FC = () => {
     const [searchValue, setSearchValue] = useState('')
     const [location, setLocation] = useState<string | null>(null)
     const [jobType, setJobType] = useState<string | null>(null)
     const [salaryRange, setSalaryRange] = useState<[number, number]>([
-        40000, 80000,
+        50000, 80000,
     ])
     const [isModalVisible, setIsModalVisible] = useState(false)
     const [jobs, setJobs] = useState<JobApplication[]>([])
@@ -28,12 +28,9 @@ const Home: React.FC = () => {
     const fetchJobs = async () => {
         setLoading(true)
         const { data, error } = await fetchAllJobApplications()
-
         if (error) {
             message.error('Failed to fetch jobs')
-            console.error('Error:', error)
         } else if (data) {
-            console.log('Success:', data)
             setJobs(data)
         }
 
@@ -44,7 +41,6 @@ const Home: React.FC = () => {
         const { error } = await createJob(jobData)
         if (error) {
             message.error('Failed to create job')
-            console.error('Error:', error)
             return false
         } else {
             message.success('Job created successfully')
@@ -65,7 +61,9 @@ const Home: React.FC = () => {
             const matchesJobType =
                 !jobType ||
                 job.jobType.toLowerCase().includes(jobType.toLowerCase())
-            const matchesSalary = salaryRange[0] >= job.salaryTo/12 && job.salaryTo/12 <= salaryRange[1]
+            const matchesSalary =
+                salaryRange[0] >= job.salaryTo / 12 &&
+                job.salaryTo / 12 <= salaryRange[1]
 
             return (
                 matchesSearch &&
@@ -80,7 +78,7 @@ const Home: React.FC = () => {
         setSearchValue('')
         setLocation(null)
         setJobType(null)
-        setSalaryRange([40000, 80000])
+        setSalaryRange([50000, 80000])
     }
 
     useEffect(() => {
@@ -91,7 +89,7 @@ const Home: React.FC = () => {
         searchValue ||
         location ||
         jobType ||
-        salaryRange[0] !== 40000 ||
+        salaryRange[0] !== 50000 ||
         salaryRange[1] !== 80000
 
     return (
@@ -136,7 +134,10 @@ const Home: React.FC = () => {
                     </Button>{' '}
                 </div>
             </Header>
-            <Content style={{ padding: '40px 100px' }}>
+            <Content
+                className="content"
+                // style={{ padding: '40px 100px', justifyContent: 'center', alignItems: 'center' }}
+            >
                 <Spin spinning={loading}>
                     <JobApplicationForm
                         visible={isModalVisible}
@@ -144,14 +145,7 @@ const Home: React.FC = () => {
                         onFinish={handleCreateJob}
                     />
                     {filteredJobs.length > 0 ? (
-                        <div
-                            style={{
-                                display: 'flex',
-                                flexWrap: 'wrap',
-                                gap: '16px',
-                                justifyContent: 'flex-start',
-                            }}
-                        >
+                        <div className="jobs-container">
                             {filteredJobs.map((job) => (
                                 <JobCard key={job.id} job={job} />
                             ))}
