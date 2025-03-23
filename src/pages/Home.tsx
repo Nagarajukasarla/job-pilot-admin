@@ -19,7 +19,7 @@ const Home: React.FC = () => {
     const [location, setLocation] = useState<string | null>(null)
     const [jobType, setJobType] = useState<string | null>(null)
     const [salaryRange, setSalaryRange] = useState<[number, number]>([
-        100000, 9500000,
+        40000, 80000,
     ])
     const [isModalVisible, setIsModalVisible] = useState(false)
     const [jobs, setJobs] = useState<JobApplication[]>([])
@@ -65,9 +65,7 @@ const Home: React.FC = () => {
             const matchesJobType =
                 !jobType ||
                 job.jobType.toLowerCase().includes(jobType.toLowerCase())
-            const matchesSalary =
-                job.salaryFrom <= salaryRange[1] &&
-                job.salaryTo >= salaryRange[0]
+            const matchesSalary = salaryRange[0] >= job.salaryTo/12 && job.salaryTo/12 <= salaryRange[1]
 
             return (
                 matchesSearch &&
@@ -82,7 +80,7 @@ const Home: React.FC = () => {
         setSearchValue('')
         setLocation(null)
         setJobType(null)
-        setSalaryRange([100000, 9500000])
+        setSalaryRange([40000, 80000])
     }
 
     useEffect(() => {
@@ -93,8 +91,8 @@ const Home: React.FC = () => {
         searchValue ||
         location ||
         jobType ||
-        salaryRange[0] !== 100000 ||
-        salaryRange[1] !== 9500000
+        salaryRange[0] !== 40000 ||
+        salaryRange[1] !== 80000
 
     return (
         <Layout>
@@ -121,8 +119,8 @@ const Home: React.FC = () => {
                         onChange={setJobType}
                     />
                     <SalarySlider
-                        min={100000}
-                        max={9500000}
+                        min={30000}
+                        max={150000}
                         value={salaryRange}
                         onChange={setSalaryRange}
                     />
