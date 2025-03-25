@@ -61,9 +61,13 @@ const Home: React.FC = () => {
             const matchesJobType =
                 !jobType ||
                 job.jobType.toLowerCase().includes(jobType.toLowerCase())
+
+            const jobMinMonthly = job.salaryFrom / 12
+            const jobMaxMonthly = job.salaryTo / 12
+
             const matchesSalary =
-                salaryRange[0] >= job.salaryTo / 12 &&
-                job.salaryTo / 12 <= salaryRange[1]
+                jobMinMonthly <= salaryRange[1] &&
+                jobMaxMonthly >= salaryRange[0]
 
             return (
                 matchesSearch &&
